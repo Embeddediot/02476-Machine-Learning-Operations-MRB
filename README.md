@@ -1,7 +1,7 @@
 ## Group Members
-Michelle Langkjær S153520
-Bjørn Sejer S172533
-Rasmus Ulstrup S173920
+Michelle Langkjær S153520\
+Bjørn Sejer S172533\
+Rasmus Ulstrup S173920\
 # 02476-Machine-Learning-Operations-MRB
 ## Overall goal of the project
 The project is inspired by a kaggle competition called Tweet Sentiment Extraction. The goal is to develop a model which can classify tweets into positive, neutral or negative.
