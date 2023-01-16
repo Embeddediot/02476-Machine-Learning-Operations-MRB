@@ -4,7 +4,7 @@ setup(
     name='src',
     packages=find_packages(),
     version='0.1.0',
-    description='Tweet Sentiment Extraction',
-    author='Group40',
+    description='This is a test',
+    author='40',
     license='MIT',
 )
