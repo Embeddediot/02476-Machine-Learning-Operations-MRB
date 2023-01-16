@@ -1,57 +1,17 @@
-02476-MRB
-==============================
-
-This is a test
-
-Project Organization
-------------
-
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
-
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+## Group Members
+Michelle Langkjær S153520\
+Bjørn Sejer S172533\
+Rasmus Ulstrup S173920
+# 02476-Machine-Learning-Operations-MRB
+## Overall goal of the project
+The project is inspired by a kaggle competition called Tweet Sentiment Extraction. The goal is to develop a model which can classify tweets into positive, neutral or negative.
+## What framework are you going to use (PyTorch Image Models, Transformer, Pytorch-Geometrics)
+As we are dealing a natural language processing (NLP) problem, it is only natrual to use the Transformers framwork.
+## How to you intend to include the framework into your project
+To include PyTorch Transformers in our NLP project, we would first select a pre-trained language model from the library, fine-tune it on our dataset, preprocess the tweets, and use the model to make predictions. We would then evaluate the model's performance and make any necessary adjustments.
+## What data are you going to run on (initially, may change)
+Our dataset is from kaggle: [Tweet sentiment Extraction](https://www.kaggle.com/competitions/tweet-sentiment-extraction/overview/description). The data is split into train, test and sample_submission. Each row contains the text of a tweet and a sentiment label. In the training set you are provided with a word or phrase drawn from the tweet (selected_text) that encapsulates the provided sentiment.
+## What deep learning models do you expect to use
+For this project pre-trained models will be used as the deadline will not allow time to train models. 
+For this project the model BERTweet will be used. It is a pre-trained language model for English Tweets which allows us to train it on our dataset without training it from zero. It is perfect for this project since the data will consist of English tweets.
+If time allows it we will also compare the results with other models.
