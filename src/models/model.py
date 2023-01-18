@@ -36,6 +36,14 @@ class TwitterSentimentAnalysis(LightningModule):
     
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=3e-5)
+
+    def prepare_data(self, text):
+        new_text = []
+        for t in text.split(" "):
+            t = '@user' if t.startswith('@') and len(t) > 1 else t
+            t = 'http' if t.startswith('http') else t
+            new_text.append(t)
+        return " ".join(new_text)
     
     def train_dataloader(self):
         # Return your twitter dataset dataloader here
@@ -46,20 +54,14 @@ class TwitterSentimentAnalysis(LightningModule):
         pass
 
 
-def preprocess(text):
-    new_text = []
-    for t in text.split(" "):
-        t = '@user' if t.startswith('@') and len(t) > 1 else t
-        t = 'http' if t.startswith('http') else t
-        new_text.append(t)
-    return " ".join(new_text)
+
 
 
 
 if __name__ == "__main__":
     model = TwitterSentimentAnalysis()
     text = "Covid cases are increasing fast!"
-    text = preprocess(text)
+    text = model.prepare_data(text)
     encoded_input = model.tokenizer(text, return_tensors='pt')
     output = model(**encoded_input)
     scores = output[0].detach().numpy()
