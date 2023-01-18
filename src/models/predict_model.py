@@ -1,40 +1,41 @@
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoModelForSequenceClassification
+from transformers import TFAutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoConfig
+import numpy as np
 from scipy.special import softmax
-
-# tweet = "@MehranShakarami today's cold @ home 😒 https://mehranshakarami.com"
-tweet = 'Great content! subscribed 😉'
-
-# precprcess tweet
-tweet_words = []
-
-for word in tweet.split(' '):
-    if word.startswith('@') and len(word) > 1:
-        word = '@user'
-    
-    elif word.startswith('http'):
-        word = "http"
-    tweet_words.append(word)
-
-tweet_proc = " ".join(tweet_words)
-
-# load model and tokenizer
-roberta = "cardiffnlp/twitter-roberta-base-sentiment"
-
-model = AutoModelForSequenceClassification.from_pretrained(roberta)
-tokenizer = AutoTokenizer.from_pretrained(roberta)
-
-labels = ['Negative', 'Neutral', 'Positive']
-
-# sentiment analysis
-encoded_tweet = tokenizer(tweet_proc, return_tensors='pt')
-# output = model(encoded_tweet['input_ids'], encoded_tweet['attention_mask'])
-output = model(**encoded_tweet)
-
+# Preprocess text (username and link placeholders)
+def preprocess(text):
+    new_text = []
+    for t in text.split(" "):
+        t = '@user' if t.startswith('@') and len(t) > 1 else t
+        t = 'http' if t.startswith('http') else t
+        new_text.append(t)
+    return " ".join(new_text)
+MODEL = f"cardiffnlp/twitter-roberta-base-sentiment-latest"
+tokenizer = AutoTokenizer.from_pretrained(MODEL)
+config = AutoConfig.from_pretrained(MODEL)
+# PT
+model = AutoModelForSequenceClassification.from_pretrained(MODEL)
+#model.save_pretrained(MODEL)
+text = "Covid cases are increasing fast!"
+text = preprocess(text)
+encoded_input = tokenizer(text, return_tensors='pt')
+output = model(**encoded_input)
 scores = output[0][0].detach().numpy()
-scores = softmax(scores)
-
-for i in range(len(scores)):
-    
-    l = labels[i]
-    s = scores[i]
-    print(l,s)
+#scores = softmax(scores)
+print(scores)
+# # TF
+# model = TFAutoModelForSequenceClassification.from_pretrained(MODEL)
+# model.save_pretrained(MODEL)
+# text = "Covid cases are increasing fast!"
+# encoded_input = tokenizer(text, return_tensors='tf')
+# output = model(encoded_input)
+# scores = output[0][0].numpy()
+# scores = softmax(scores)
+# Print labels and scores
+ranking = np.argsort(scores)
+ranking = ranking[::-1]
+for i in range(scores.shape[0]):
+    l = config.id2label[ranking[i]]
+    s = scores[ranking[i]]
+    print(f"{i+1}) {l} {np.round(float(s), 4)}")

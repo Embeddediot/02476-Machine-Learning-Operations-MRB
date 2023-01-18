@@ -1,13 +1,17 @@
 import torch
 from pytorch_lightning import LightningModule
-from transformers import RobertaForSequenceClassification, RobertaTokenizer
+from transformers import RobertaForSequenceClassification, RobertaTokenizer, AutoConfig
+from scipy.special import softmax
+import numpy as np
 
 class TwitterSentimentAnalysis(LightningModule):
-    def __init__(self):
+    def __init__(self, pretrained_model_name=f"cardiffnlp/twitter-roberta-base-sentiment-latest"):
         super().__init__()
-        self.model = RobertaForSequenceClassification.from_pretrained("roberta-base")
-        self.tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
-
+        self.pretrained_model_name = pretrained_model_name
+        self.tokenizer = RobertaTokenizer.from_pretrained(pretrained_model_name)
+        self.model = RobertaForSequenceClassification.from_pretrained(pretrained_model_name)
+        self.config = AutoConfig.from_pretrained(pretrained_model_name)
+        
     def forward(self, input_ids, attention_mask):
         return self.model(input_ids, attention_mask)[0]
     
@@ -40,3 +44,31 @@ class TwitterSentimentAnalysis(LightningModule):
     def val_dataloader(self):
         # Return your twitter dataset dataloader here
         pass
+
+
+def preprocess(text):
+    new_text = []
+    for t in text.split(" "):
+        t = '@user' if t.startswith('@') and len(t) > 1 else t
+        t = 'http' if t.startswith('http') else t
+        new_text.append(t)
+    return " ".join(new_text)
+
+
+
+if __name__ == "__main__":
+    model = TwitterSentimentAnalysis()
+    text = "Covid cases are increasing fast!"
+    text = preprocess(text)
+    encoded_input = model.tokenizer(text, return_tensors='pt')
+    output = model(**encoded_input)
+    scores = output[0].detach().numpy()
+    scores = softmax(scores)
+    print(scores)
+
+    ranking = np.argsort(scores)
+    ranking = ranking[::-1]
+    for i in range(scores.shape[0]):
+        l = model.config.id2label[ranking[i]]
+        s = scores[ranking[i]]
+        print(f"{i+1}) {l} {np.round(float(s), 4)}")
