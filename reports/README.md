@@ -73,7 +73,7 @@ S173920, S172533, S153520
 >
 > Answer:
 
---- question 3 fill here ---
+We are using the Transformers framework provided by Hugging Face, as we are using an NLP machine learning model. From this framework, we make use of RobertaForSequenceClassification for our pretrained RoBERTa model. The model is implemented in our "src/models/model.py" module. The RobertaTokenizer is used for subword segmentation of the tweet data. 
 
 ## Coding environment
 
