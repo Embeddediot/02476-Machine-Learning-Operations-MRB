@@ -193,7 +193,8 @@ While not ideal for larger projects, it caused no issues over the course of the 
 >
 > Answer:
 
---- question 11 fill here ---
+Our CI structure is not fully implemented for the project as the group was pressed for time. However, a simple pytest unittest is demonstrated in the dataloader "get_data.py", checking if the .csv files are collected from Kaggle through the API and extracted from the .zip file. [this figure](figures/pytestFail.png) Shows the Pytest output when a wrong path is given to the file, thus causing the module to fail. [this figure](figures/pytestPass.png) shows the same test passing when the path is correct, such that the test is passed. 
+
 
 ## Running code and tracking experiments
 
