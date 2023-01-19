@@ -1,41 +1,53 @@
-from transformers import AutoModelForSequenceClassification
-from transformers import TFAutoModelForSequenceClassification
-from transformers import AutoTokenizer, AutoConfig
-import numpy as np
+import os
+
+import torch
+import pytorch_lightning as pl
+from pytorch_lightning import Trainer
 from scipy.special import softmax
-# Preprocess text (username and link placeholders)
-def preprocess(text):
-    new_text = []
-    for t in text.split(" "):
-        t = '@user' if t.startswith('@') and len(t) > 1 else t
-        t = 'http' if t.startswith('http') else t
-        new_text.append(t)
-    return " ".join(new_text)
-MODEL = f"cardiffnlp/twitter-roberta-base-sentiment-latest"
-tokenizer = AutoTokenizer.from_pretrained(MODEL)
-config = AutoConfig.from_pretrained(MODEL)
-# PT
-model = AutoModelForSequenceClassification.from_pretrained(MODEL)
-#model.save_pretrained(MODEL)
-text = "Covid cases are increasing fast!"
-text = preprocess(text)
-encoded_input = tokenizer(text, return_tensors='pt')
-output = model(**encoded_input)
-scores = output[0][0].detach().numpy()
-#scores = softmax(scores)
-print(scores)
-# # TF
-# model = TFAutoModelForSequenceClassification.from_pretrained(MODEL)
-# model.save_pretrained(MODEL)
-# text = "Covid cases are increasing fast!"
-# encoded_input = tokenizer(text, return_tensors='tf')
-# output = model(encoded_input)
-# scores = output[0][0].numpy()
-# scores = softmax(scores)
-# Print labels and scores
-ranking = np.argsort(scores)
-ranking = ranking[::-1]
-for i in range(scores.shape[0]):
-    l = config.id2label[ranking[i]]
-    s = scores[ranking[i]]
-    print(f"{i+1}) {l} {np.round(float(s), 4)}")
+
+from torch.utils.data import TensorDataset
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
+
+import pandas as pd
+import numpy as np
+
+from src.models.model import TwitterSentimentAnalysis
+from src.data.make_dataset import sentimentTweets
+
+
+def main():
+    ## load data
+    print("Loading data...")
+    data = sentimentTweets()
+    test_df = data.test_df.head(100)
+
+    ##load model
+    print("Loading model...")
+    model = TwitterSentimentAnalysis()
+
+    ##encoder
+    print("Encoding tokens...")
+    encoded_input = model.tokenizer.batch_encode_plus(test_df["text"], 
+                                                    return_tensors='pt',
+                                                    return_attention_mask=True,
+                                                    padding='max_length',
+                                                    max_length=data.train_max_len)
+
+    ## Test
+    total_correct = 0
+    total_wrong = 0
+
+    output = model(**encoded_input)
+    scores = output.detach().numpy()
+    scores = softmax(scores)
+    for i,score in enumerate(scores):
+        if np.argmax(score)==test_df["label"][i]:
+            total_correct += 1
+        else:
+            total_wrong += 1
+    
+    print(total_wrong,total_correct)
+
+if __name__ == "__main__":
+    main()
+    
