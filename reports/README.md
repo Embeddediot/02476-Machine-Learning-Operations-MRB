@@ -118,7 +118,7 @@ S173920, S172533, S153520
 >
 > Answer:
 
---- question 6 fill here ---
+We did try to comply with the PEP 8 style guide throughout the Python code. Following some agreed upon standard usually makes it easier for others to read and debug the code for other developers. This can save time and decrease the codebase in a company. Common standard can also help catch structual mistakes in the code earlier on.
 
 ## Version control
 
