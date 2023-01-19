@@ -4,6 +4,7 @@ from transformers import RobertaForSequenceClassification, RobertaTokenizer, Aut
 from scipy.special import softmax
 import numpy as np
 
+
 class TwitterSentimentAnalysis(LightningModule):
     def __init__(self, pretrained_model_name=f"cardiffnlp/twitter-roberta-base-sentiment-latest"):
         super().__init__()
@@ -11,6 +12,7 @@ class TwitterSentimentAnalysis(LightningModule):
         self.tokenizer = RobertaTokenizer.from_pretrained(pretrained_model_name)
         self.model = RobertaForSequenceClassification.from_pretrained(pretrained_model_name)
         self.config = AutoConfig.from_pretrained(pretrained_model_name)
+
         
     def forward(self, input_ids, attention_mask):
         return self.model(input_ids, attention_mask)[0]
@@ -63,6 +65,7 @@ if __name__ == "__main__":
     text = "Covid cases are increasing fast!"
     text = model.prepare_data(text)
     encoded_input = model.tokenizer(text, return_tensors='pt')
+    print(f"encoded_input: {encoded_input} ")
     output = model(**encoded_input)
     scores = output[0].detach().numpy()
     scores = softmax(scores)
