@@ -19,7 +19,8 @@ def main():
     ## load data
     print("Loading data...")
     data = sentimentTweets()
-    test_df = data.test_df.head(100)
+    test_df = data.test_df.head(1)
+
 
     ##load model
     print("Loading model...")

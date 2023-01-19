@@ -5,6 +5,8 @@ from torch.utils.data.dataset import Dataset
 import pandas as pd
 import numpy as np
 
+import pytest
+
 
 class sentimentTweets(Dataset):
     def __init__(self):
@@ -38,6 +40,12 @@ class sentimentTweets(Dataset):
             new_text.append(t)
         return " ".join(new_text)
 
+
+def test_import_dataset(dataset):
+    assert len("hello") < 1
+
 if __name__ == "__main__":
     data = sentimentTweets()
+    test_import_dataset(data)
+    
     

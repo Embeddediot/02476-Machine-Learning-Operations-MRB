@@ -162,7 +162,7 @@ We did try to comply with the PEP 8 style guide throughout the Python code. Foll
 > Answer:
 
 While two group members worked on the model, the last one was working on the cloud setup, docker contianers etc. No branching or pull requests were used in the project because of its simplicity. Not much iterative design was made becase of the limited time.
-While not ideal for larger projects, it caused no issues over the course of the four project days. However, using branches and pull requests for any project larger that this is the way to go - it eases debugging because of better version control and tracability of the code. Any new feature can be unit tested in its own branch before merging to the main project, and changes can be reverted if something goes wrong.
+While not ideal for larger projects, it caused no issues over the course of the five project days. However, using branches and pull requests for any project larger that this is the way to go - it eases debugging because of better version control and tracability of the code. Any new feature can be unit tested in its own branch before merging to the main project, and changes can be reverted if something goes wrong.
 
 ### Question 10
 
