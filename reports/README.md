@@ -194,7 +194,8 @@ While not ideal for larger projects, it caused no issues over the course of the 
 > Answer:
 
 Our CI structure is not fully implemented for the project as the group was pressed for time. However, a simple pytest unittest is demonstrated in the dataloader "get_data.py", checking if the .csv files are collected from Kaggle through the API and extracted from the .zip file. [this figure](figures/pytestFail.png) Shows the Pytest output when a wrong path is given to the file, thus causing the module to fail. [this figure](figures/pytestPass.png) shows the same test passing when the path is correct, such that the test is passed. 
-
+For a robust, deployed system, such unit tests would need to cover a majority of the code. It ensures a quite modular approach of the code layout which is important in large systems.
+In Pytest, specific assertion errors can contain detailed descriptions, pointing the user in the right direction when issues arise. Systems with unit tests are often well suited for nightly builds, and these automated runs will oftentimes catch bugs in the codebase in unexpected places. CI can ensure that the project can be deployed accross different platforms with more ease, and other developers can get an better overview of the code with less effort. All these features can save a company a large work load and provide better tests for released software, causing fewer bugs to reach customers.
 
 ## Running code and tracking experiments
 
