@@ -60,7 +60,7 @@ def main():
     ## Train
     print("Training...")
     trainer = Trainer(
-        max_epochs=15,
+        max_epochs=5,
         gpus=gpus
     )
 
