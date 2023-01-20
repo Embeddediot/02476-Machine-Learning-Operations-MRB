@@ -338,7 +338,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-![Bucket](figures/Picture1.png)
+[Bucket](figures/Picture1.png)
 
 
 ### Question 20
@@ -347,7 +347,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 > **You can take inspiration from [this figure](figures/registry.png).**
 >
 > Answer:
-![GCP container](figures/Picture2.png)
+[GCP container](figures/Picture2.png)
 
 ### Question 21
 
@@ -356,7 +356,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 >
 > Answer:
 
-![GCP Cloud/Picture3ng)
+[GCP Cloud/Picture3ng)
 
 
 ### Question 22
