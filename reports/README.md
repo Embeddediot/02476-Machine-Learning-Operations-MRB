@@ -338,7 +338,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-![Picture1](https://user-images.githubusercontent.com/77270262/213665549-44e535d6-ebc5-48bd-a6ae-2df2e4055300.png)
+![Picture1](figures/https://user-images.githubusercontent.com/77270262/213665549-44e535d6-ebc5-48bd-a6ae-2df2e4055300.png)
 
 
 ### Question 20
