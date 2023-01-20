@@ -15,3 +15,6 @@ Our dataset is from kaggle: [Tweet sentiment Extraction](https://www.kaggle.com/
 For this project pre-trained models will be used as the deadline will not allow time to train models. 
 For this project the model BERTweet will be used. It is a pre-trained language model for English Tweets which allows us to train it on our dataset without training it from zero. It is perfect for this project since the data will consist of English tweets.
 If time allows it we will also compare the results with other models.
+
+
+Bear_Test
