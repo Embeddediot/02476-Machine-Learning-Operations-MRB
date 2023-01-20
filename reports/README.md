@@ -338,7 +338,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-![Picture1](figures/https://user-images.githubusercontent.com/77270262/213665549-44e535d6-ebc5-48bd-a6ae-2df2e4055300.png)
+![Bucket](figures/Picture1.png)
 
 
 ### Question 20
@@ -347,7 +347,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 > **You can take inspiration from [this figure](figures/registry.png).**
 >
 > Answer:
-![Picture2](https://user-images.githubusercontent.com/77270262/213665835-d94cecb0-c0b2-4b9f-8412-e1452ec83bb7.png)
+![GCP container](figures/Picture2.png)
 
 ### Question 21
 
@@ -356,7 +356,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 >
 > Answer:
 
-![Picture3](https://user-images.githubusercontent.com/77270262/213666022-b05900bb-4eb4-4ac4-ab3a-5cf1100692a4.png)
+![GCP Cloud/Picture3ng)
 
 
 ### Question 22
