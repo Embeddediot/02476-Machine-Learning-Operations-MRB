@@ -73,7 +73,7 @@ S173920, S172533, S153520
 >
 > Answer:
 
-We are using the Transformers framework provided by Hugging Face, as we are using an NLP machine learning model. From this framework, we make use of RobertaForSequenceClassification for our pretrained RoBERTa model. The model is implemented in our "src/models/model.py" module. The RobertaTokenizer is used for subword segmentation of the tweet data. 
+In our project we used the transformers framework as we worked with tweets which is a perfect problem for natural language processing. In the transformers framework we worked with the roBERTa model which was pretrained and downloaded from huggingface https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest. This model can be fine-tuned and customized to adapt to specific tasks or data, making it an ideal solution for tweets which might contain informal language or slang. With PyTorch Transformers, we can quickly and accurately classify the sentiment of tweets, making it perfect for our problem. Also, with Pytorch lightning we can quickly develop a model, and very easily train it using the lightning framework.
 
 ## Coding environment
 
