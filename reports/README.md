@@ -253,7 +253,7 @@ To make the projects experiment even more reproductive we could have used config
 >
 > Answer:
 
-![Tensorboard](figures/tensboard.PNG)
+![Tensorboard](figures/tensorboard.png)
   
 In our project we used pytorch lightning as it streamlined the development and reduced boilerplate for our project. Inside lightning we used the lightninglogs to track our training progress, where metrics as epochs and training loss was tracked. In the logs a lot more information could have been tracked like accuracy and gradients. This information can be used to monitor the performance of our model and identify any issues that may be affecting its performance. For example, if the loss is not decreasing or it could indicate if the model is underfitted or overfitted.
   
