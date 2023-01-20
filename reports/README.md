@@ -356,7 +356,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 >
 > Answer:
 
-[GCP Cloud/Picture3ng)
+[GCP Cloud/Picture3.png)
 
 
 ### Question 22
