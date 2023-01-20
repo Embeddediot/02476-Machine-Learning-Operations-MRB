@@ -467,6 +467,7 @@ The biggest improvements we could have done for this project would be to decreas
 > *All members contributed to code by...*
 >
 > Answer:
+  
 S173920, was in charge of setting torch, transformers and mainly model stuff up.
 
 S172533, was in charge of setting github, docker, GCP up.
