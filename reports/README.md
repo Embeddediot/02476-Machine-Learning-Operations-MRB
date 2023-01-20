@@ -92,7 +92,7 @@ In our project we used the transformers framework as we worked with tweets which
 >
 > Answer:
 
---- question 4 fill here ---
+We used docker for managing our dependencies. The docker file contains the relevant packages needed from apt. It also includes a file called requirements.txt which holds all the python dependencies, these are collected using pip. To get a copy of the environment the user would need to pull, build and run the docker image. 
 
 ### Question 5
 
@@ -304,7 +304,7 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 >
 > Answer:
 
---- question 17 fill here ---
+We used three different services for the project. Engine, Bucket, Cloud Run and Vertex AI. The engine was used to run a virtual machine which could run the code using a docker image. This was done to have a virtual machine where the model could be trained. The Bucket was used virtual storage. The model was uploaded to the cloud for the purpose of creating cloud functions. This was accomplished but besides the function from the exercise, no new functions for our model was created. Last Cloud Run was used for deployment with the use of fastAPI. The deployment of the model in GCP creates a link where a user can go and write a sentence and the user will then be given a output which describes how the sentence will be classified. An implementation of vertex AI to train the model was done as well. The model was run and training began, but after 9 hours the training failed due to lack of memory. Due to a lack of time another training was not initiated.
 
 ### Question 18
 
@@ -319,7 +319,7 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 >
 > Answer:
 
---- question 18 fill here ---
+The type of the machine used is an instance of the type n1-standard-1, with no use of GPU. The implementation of GPU would help to train the model faster, but since we intended to train using vertex AI this was not important. The machine could be used for training, but another use is that the group members could use the same machine containing the same docker image for convenient testing.
 
 ### Question 19
 
@@ -327,8 +327,8 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+![Picture1](https://user-images.githubusercontent.com/77270262/213665549-44e535d6-ebc5-48bd-a6ae-2df2e4055300.png)
 
---- question 19 fill here ---
 
 ### Question 20
 
@@ -336,8 +336,7 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 > **You can take inspiration from [this figure](figures/registry.png).**
 >
 > Answer:
-
---- question 20 fill here ---
+![Picture2](https://user-images.githubusercontent.com/77270262/213665835-d94cecb0-c0b2-4b9f-8412-e1452ec83bb7.png)
 
 ### Question 21
 
@@ -346,7 +345,8 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 >
 > Answer:
 
---- question 21 fill here ---
+![Picture3](https://user-images.githubusercontent.com/77270262/213666022-b05900bb-4eb4-4ac4-ab3a-5cf1100692a4.png)
+
 
 ### Question 22
 
@@ -362,7 +362,10 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 >
 > Answer:
 
---- question 22 fill here ---
+
+To deploy the model locally the following command would be called: “uvicorn src.models.deployment:app –reload”. 
+To take the model from local to the cloud the model was also deployed in GCP. This was done by implementing fastAPI in the code,  creating a docker image and uploading that docker image as a service in cloud run in GCP. The service gives the link https://gcp-test-app-final-stre26cjxq-ew.a.run.app/tweet where the user can use the model. The user will be led to a website where they in the tweet column can write a sentence. The user will then get a response on how the sentence is classified (positive, negative, or neutral).
+
 
 ### Question 23
 
@@ -393,7 +396,8 @@ Another thing to monitor for is data drifting. Even the world’s best models wi
 >
 > Answer:
 
---- question 24 fill here ---
+The overall cost of running GCP was 54 kr. The cost of running the virtual machine was 32 kr.
+The remaining cost was from the use of Vertex AI for training, as well as running the service created for deploying the model in GCP.
 
 ## Overall discussion of project
 
