@@ -272,7 +272,11 @@ Lightninglogs and tensorboard are very powerful tools together. Another tool we 
 >
 > Answer:
 
---- question 15 fill here ---
+There were created 2 different docker images one for training and one for deployment. To run the docker image for training the user would run the command: docker run gcr.io/dtumlops-375010/gcp_vm_tester.
+To run the docker image for deployment the user would have to run the command: docker run gcr.io/dtumlops-375010/gcp_test_app_final.
+This was implemented so each group member could train the model in the same environment and issues with dependencies could be avoided. The image for deployment was used to deploy the model in GCP cloud run services.
+A third docker image for inference was not created due to a lack of time, this was instead done locally on one of the group members laptop.
+
 
 ### Question 16
 
