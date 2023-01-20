@@ -107,7 +107,10 @@ In our project we used the transformers framework as we worked with tweets which
 > *experiments.*
 > Answer:
 
---- question 5 fill here ---
+We generated a cookiecutter template for our project. We use the “src” folder for our model. It contains a “data” folder from where a script downloads the data from Kaggle through their API and stores it in .csv files.
+The “models” folder contains both the code for the pretrained mode, the predict model, the training model and our deployment code. The “reports” folder contains this template, and a readme.md is provided at the root of the repo, introducing the project. So are the dockerfiles and requirements, that we use in GCP.
+These are the only folders being utilized in the cookiecutter structure for the project.
+
 
 ### Question 6
 
@@ -131,7 +134,7 @@ We did try to comply with the PEP 8 style guide throughout the Python code. Foll
 >
 > Answer:
 
---- question 7 fill here ---
+We didn’t have enough time to test all our modules thoroughly, as we ended up spending more time on the deployment and machine learning. But the structure for unittests in Pytest is set up (and demonstrated through screenshots in question 11). 
 
 ### Question 8
 
@@ -177,7 +180,7 @@ While not ideal for larger projects, it caused no issues over the course of the 
 >
 > Answer:
 
---- question 10 fill here ---
+DVS wasn’t used for the project, only the exercises. We didn’t have enough code iterations to require version control for the project, which is reasoning behind down prioritizing this. The group did not run into any issues with code needing to be reverted back to an earlier version. However, managing version control of large projects is essential in order to succeed. Having a well-structured version history eases the workload for code deployments and can makes debugging easier, as reverting back to functioning code is a one-line command. In this way, a developer can develop new code in the middle of a pipeline without the fear of breaking the whole system (almost) irreversibly. 
 
 ### Question 11
 
