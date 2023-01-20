@@ -468,7 +468,10 @@ The biggest improvements we could have done for this project would be to decreas
 >
 > Answer:
 S173920, was in charge of setting torch, transformers and mainly model stuff up.
+
 S172533, was in charge of setting github, docker, GCP up.
+
 S153520 was in charge of setting unit testing, GCP and github.
+
 All members contributed to help each other and understand the process of setting all the tools up and understand how the model worked.  
 
