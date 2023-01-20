@@ -369,7 +369,9 @@ In Pytest, specific assertion errors can contain detailed descriptions, pointing
 >
 > Answer:
 
---- question 23 fill here ---
+Monitoring was not implemented on the final project, but it is an absolute necessity for any large systems. For example, monitoring can be used to see how often the GCP deployed project is run, and if anything unexpected happens during these runs. It can be used to set up alarms to notify developers when something breaks, and if the unit testing is well implemented, it should ideally be a relatively simple task to figure out, where the issue arose. All major cloud deployment platforms, including GCP, include great monitoring options.
+Another thing to monitor for is data drifting. Even the world’s best models will fail in their predictions, if the input data drifts too far away from the initial values.
+
 
 ### Question 24
 
