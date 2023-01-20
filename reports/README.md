@@ -356,7 +356,7 @@ The type of the machine used is an instance of the type n1-standard-1, with no u
 >
 > Answer:
 
-[GCP Cloud/Picture3.png)
+[GCP Cloud](figures/Picture3.png)
 
 
 ### Question 22
@@ -429,7 +429,7 @@ The remaining cost was from the use of Vertex AI for training, as well as runnin
 >
 > Answer:
 
---- question 25 fill here ---
+[Diagram](figures/diagram.png)
 
 ### Question 26
 
