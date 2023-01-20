@@ -217,7 +217,9 @@ In Pytest, specific assertion errors can contain detailed descriptions, pointing
 >
 > Answer:
 
---- question 12 fill here ---
+In our project the hyperparameters was mainly hardcoded, but we would also use of simple python argparser to change the learning rate. The most efficient way to find the learning rate would be to use pytorch lightnings trainer to estimate the best learning rate. 
+
+We didn’t use config files but it would been very beneficial to for example use Hydra for configuration of the hyperparameters 
 
 ### Question 13
 
@@ -232,7 +234,9 @@ In Pytest, specific assertion errors can contain detailed descriptions, pointing
 >
 > Answer:
 
---- question 13 fill here ---
+To keep the projects experiments reproductive we mainly used docker. Using dockers containers we could create an environment which helped isolating the project from the underlying OS. We started using docker from the start of the development of the model, and it also helped with sharing the environment between group members.
+
+To make the projects experiment even more reproductive we could have used config files. Config files would have helped to keep the hyperparameters precisely defined. A package such as hydra would have been perfect for keeping experiments reproductive. For a fresh group member, the config files and docker image would have been a great help, for keeping experiments simple and easy to understand.
 
 ### Question 14
 
