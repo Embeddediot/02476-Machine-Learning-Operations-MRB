@@ -293,7 +293,7 @@ A third docker image for inference was not created due to a lack of time, this w
 
 When setting up the GCP service and connecting it to our FastAPI, the group ran into some issues which required more in depth debugging. Here, the logging files were used to locate our errors. For example, this approach helped u setting up the right port number in our FastAPI to connect with the GCP setup. 
 The python project code was debugged mainly by inspecting log files and catching exceptions. Logging for the exercise was done on W&B, but for the project, we used Pytorch Lightning log and a bit of Pytest. The logging was especially useful when setting up the training of the model, as this step takes a while to run.
- No code profiling was done in this case, but large machine learning models can benefit from a profiling, making it run more efficiently.
+ No code profiling was done in this case, but large machine learning models can benefit from a profiling, making it possible to run optimize the code to run more efficiently.
 
 
 ## Working in the cloud
