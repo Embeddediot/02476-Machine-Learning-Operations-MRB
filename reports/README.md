@@ -149,7 +149,7 @@ We didn’t have enough time to test all our modules thoroughly, as we ended up 
 >
 > Answer:
 
---- question 8 fill here ---
+In our project we have a very low code coverage (below 10%) as we didn’t implement that much unit testing. This was because of time and errors during the development process. But we understand that having a high code coverage would benefit a lot to verification of our code. Even if we had 100% we would not trust it be error free, as some error might not get caught in the test. This is defined by how good the test is written. As code coverage is a quantitative measurement, it would be better to also include test coverage as it would be a qualitive measurement for the code. 
 
 ### Question 9
 
@@ -249,7 +249,15 @@ In Pytest, specific assertion errors can contain detailed descriptions, pointing
 >
 > Answer:
 
---- question 14 fill here ---
+![Tensorboard](https://user-images.githubusercontent.com/77269937/213664525-bb0bd284-ec5f-4b61-829e-1eba53ce1e5e.png)
+  
+In our project we used pytorch lightning as it streamlined the development and reduced boilerplate for our project. Inside lightning we used the lightninglogs to track our training progress, where metrics as epochs and training loss was tracked. In the logs a lot more information could have been tracked like accuracy and gradients. This information can be used to monitor the performance of our model and identify any issues that may be affecting its performance. For example, if the loss is not decreasing or it could indicate if the model is underfitted or overfitted.
+  
+In combination with lightninglogs we also used tensorboard. Tensorboard is a convenient way to visualize the data logged by lightninglogs in a pretty graph and in real time. This means that the data logged by lightninglogs, can be analyzed and help to identify patterns. One of the biggest parts is identifying trends in our model performance such as learning rate, batch size and number of epochs.
+  
+Tensorboard could also been used to visualize the model architecture, which would help to understand the model, as it would able to display number of layers, neurons and activation functions used.
+  
+Lightninglogs and tensorboard are very powerful tools together. Another tool we could have considered using would have been weight and biases as it would have helped a lot in tuning the hyperparamaters. 
 
 ### Question 15
 
@@ -420,7 +428,10 @@ Another thing to monitor for is data drifting. Even the world’s best models wi
 >
 > Answer:
 
---- question 26 fill here ---
+First of we had a lot of disease in our group which meant that had even less time than originally. In our project the biggest struggles were getting the model to work. We had a lot of problem during the development of the model as it would work. We started using a distilBERT model, where we would train it ourselves. This proved to be a very big challenge and we changed strategy to use a pretrained model. We found a huggingface pretrained transformer model and we tried to finetune it. Here another problem emerged as we struggled a lot with finetuning the model, and getting the model saved which meant that we wasted a lot of time here. Doing the deployment of the model we also had some problems with GCP. This was mainly errors on our part, as it was first time using GCP but also that GCP is rather slow to deploy. 
+
+The biggest improvements we could have done for this project would be to decrease time used on the model and increase time using on setting up tools and automating the process of development of the model. Our group would have benefitted a lot with using tools like github actions and hydra. 
+
 
 ### Question 27
 
@@ -436,5 +447,8 @@ Another thing to monitor for is data drifting. Even the world’s best models wi
 > *All members contributed to code by...*
 >
 > Answer:
+S173920, was in charge of setting torch, transformers and mainly model stuff up.
+S172533, was in charge of setting github, docker, GCP up.
+S153520 was in charge of setting unit testing, GCP and github.
+All members contributed to help each other and understand the process of setting all the tools up and understand how the model worked.  
 
---- question 27 fill here ---
