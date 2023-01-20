@@ -431,6 +431,11 @@ The remaining cost was from the use of Vertex AI for training, as well as runnin
 
 [Diagram](figures/diagram.png)
 
+ A user pulls the source code from the GitHub repository of the project. The user can either choose to train the model locally before deploying it to GCP or train it remotely. In that case, the Docker image needs to be built with the new, updated code. Once the configuration is done, it is put on the GCP cloud run service. The system contains two different docker images, one for training and another for deployment in GCP. The model (RoBERTa) can be trained on Vertex AI, which in practice means that the model is being trained in the cloud using a virtual machine. In this system the training using Vertex AI will train using CPU, it is possible to do it using GPU as well, but as we hid complications implementing this we were only able to train it using CPU on Vertex AI. 
+FastAPI interfaces between the model running on GCD and the end user via HTTP GET requests, when the user wants to check sentences once at a time. The full model is saved in the GCP bucket and can then be used on a large dataset. 
+LighningLogs from PyTorch saves a logging file which can be used for debugging.
+TensorBoard provides visualization to the user.
+
 ### Question 26
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
