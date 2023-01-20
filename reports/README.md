@@ -92,7 +92,14 @@ In our project we used the transformers framework as we worked with tweets which
 >
 > Answer:
 
-We used docker for managing our dependencies. The docker file contains the relevant packages needed from apt. It also includes a file called requirements.txt which holds all the python dependencies, these are collected using pip. To get a copy of the environment the user would need to pull, build and run the docker image. 
+We used docker for managing our dependencies. The docker file contains the relevant packages needed from apt. It also includes a file called requirements.txt which holds all the python dependencies, these are collected using pip. To get a copy of the environment the user would need to pull, build and run the docker image. The guide to get the image would be as follows:
+Docker images
+#The user would then choose the relevant image
+Docker pull <docker-image>
+Docker build <docker-image>
+Docker run <docker-image>
+After this process the user should have the same environment with all relevant dependencies. Besides the docker approach, the virtual machine can also be used as it has the docker image of the project. This will be done by using gcloud and ssh to use the machine.
+ 
 
 ### Question 5
 
